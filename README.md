@@ -1,0 +1,1 @@
+NavegaSeguro é um guia digital interativo e responsivo de segurança na internet, projeto de extensão em ADS (UNINTER). Jornada de aprendizado com 7 módulos (phishing, senhas, malware, compras online, Wi-Fi, dados pessoais e golpes), quiz, XP, conquistas e progresso salvo no navegador. HTML, CSS e JS puro, sem frameworks.
