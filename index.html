@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NavegaSeguro — Aprenda a navegar com segurança</title>
+<meta name="description" content="Guia digital interativo de segurança na internet. Aprenda a reconhecer golpes, phishing e riscos online de forma simples.">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#home" class="brand" data-nav="home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="30" height="30"><path d="M20 3 L34 9 V19 C34 27.5 28 33.8 20 37 C12 33.8 6 27.5 6 19 V9 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M13.5 20.5 L18 25 L27 14.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">NavegaSeguro</span>
+        <span class="brand-tagline">Aprenda. Proteja-se. Navegue melhor.</span>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="primary-nav" id="primaryNav">
+      <a href="#home" data-nav="home">Início</a>
+      <a href="#path" data-nav="path">Aprender</a>
+      <a href="#progress" data-nav="progress">Meu progresso</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HOME -->
+  <section id="view-home" class="view" data-view="home">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <h1>Navegue com segurança.<br>Aprenda a se proteger.</h1>
+          <p>A internet faz parte da nossa rotina. Mas, junto com suas facilidades, também existem golpes, páginas falsas, vírus e tentativas de roubar informações. Aprenda a reconhecer esses riscos e descubra como se proteger de forma simples.</p>
+          <button class="btn btn-primary" data-goto="path">Começar a aprender →</button>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 320 320" class="shield-illustration">
+            <circle cx="160" cy="160" r="150" class="ring ring-1"/>
+            <circle cx="160" cy="160" r="118" class="ring ring-2"/>
+            <path d="M160 55 L235 82 V158 C235 205 203 240 160 260 C117 240 85 205 85 158 V82 Z" class="shield-body"/>
+            <path d="M160 55 L235 82 V158 C235 205 203 240 160 260 Z" class="shield-shade"/>
+            <path d="M126 158 L150 184 L198 128" class="shield-check"/>
+            <circle cx="70" cy="70" r="7" class="dot dot-a"/>
+            <circle cx="255" cy="240" r="5" class="dot dot-b"/>
+            <circle cx="248" cy="60" r="4" class="dot dot-c"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="how-it-works">
+      <div class="section-inner">
+        <h2>Como funciona</h2>
+        <div class="steps-grid">
+          <article class="step-card">
+            <span class="step-num">01</span>
+            <h3>Leia</h3>
+            <p>Aprenda conceitos importantes sobre segurança digital.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-num">02</span>
+            <h3>Responda</h3>
+            <p>Depois da leitura, teste seus conhecimentos em um pequeno quiz.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-num">03</span>
+            <h3>Avance</h3>
+            <p>Ao concluir a etapa, um novo conteúdo é desbloqueado.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEU CAMINHO preview -->
+    <section class="path-preview">
+      <div class="section-inner">
+        <div class="path-preview-head">
+          <h2>Seu caminho</h2>
+          <button class="link-btn" data-goto="path">Ver todos os módulos →</button>
+        </div>
+        <div class="module-grid" id="homeModuleGrid"></div>
+      </div>
+    </section>
+  </section>
+
+  <!-- SEU CAMINHO (full) -->
+  <section id="view-path" class="view" data-view="path">
+    <div class="section-inner">
+      <h1>Seu caminho de aprendizado</h1>
+      <p class="view-subtitle">Complete os módulos em ordem para desbloquear os próximos. Sua jornada fica salva neste navegador.</p>
+      <div class="module-grid" id="pathModuleGrid"></div>
+
+      <div class="final-challenge-card locked" id="finalChallengeCard">
+        <div class="fc-icon" aria-hidden="true">🏆</div>
+        <div class="fc-body">
+          <h3>Desafio final</h3>
+          <p id="finalChallengeDesc">Complete todos os 7 módulos para desbloquear o desafio final.</p>
+        </div>
+        <button class="btn btn-secondary" id="finalChallengeBtn" disabled>Bloqueado</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE READING -->
+  <section id="view-module" class="view" data-view="module">
+    <div class="module-shell">
+      <button class="back-link" data-goto="path">← Voltar para módulos</button>
+
+      <div class="module-head">
+        <span class="module-num-badge" id="modNum">01</span>
+        <div>
+          <p class="module-eyebrow" id="modEyebrow">Módulo</p>
+          <h1 id="modTitle">Título do módulo</h1>
+        </div>
+      </div>
+
+      <div class="reading-progress-bar">
+        <div class="rp-label">
+          <span>Progresso da leitura</span>
+          <span id="readPercentLabel">0%</span>
+        </div>
+        <div class="rp-track"><div class="rp-fill" id="readPercentFill"></div></div>
+      </div>
+
+      <article class="module-content" id="moduleContent"></article>
+
+      <div class="quiz-gate" id="quizGate">
+        <div class="quiz-gate-icon" id="quizGateIcon">🔒</div>
+        <div class="quiz-gate-text">
+          <strong id="quizGateTitle">Quiz bloqueado</strong>
+          <p id="quizGateMsg">Leia pelo menos 80% desta aula para desbloquear o quiz.</p>
+        </div>
+        <button class="btn btn-primary" id="quizGateBtn" disabled>Ir para o quiz →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="view-quiz" class="view" data-view="quiz">
+    <div class="module-shell">
+      <button class="back-link" data-goto="module">← Voltar para a leitura</button>
+      <p class="module-eyebrow">Quiz</p>
+      <h1 id="quizTitle">Quiz do módulo</h1>
+      <p class="view-subtitle">Responda às perguntas para concluir o módulo. +10 XP por acerto.</p>
+
+      <div class="quiz-progress" id="quizProgress"></div>
+      <div id="quizBody"></div>
+
+      <div class="quiz-result hidden" id="quizResult">
+        <div class="qr-icon" id="qrIcon">🎉</div>
+        <h2 id="qrTitle">Novo módulo desbloqueado!</h2>
+        <p id="qrMsg">Você concluiu esta etapa. Continue sua jornada.</p>
+        <p class="qr-score" id="qrScore"></p>
+        <div class="qr-actions">
+          <button class="btn btn-secondary" data-goto="path">Ver meu caminho</button>
+          <button class="btn btn-primary" id="qrNextBtn">Próximo módulo →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CHALLENGE -->
+  <section id="view-final" class="view" data-view="final">
+    <div class="module-shell">
+      <button class="back-link" data-goto="path">← Voltar para módulos</button>
+      <p class="module-eyebrow">Desafio final</p>
+      <h1>Você está pronto para testar seus conhecimentos?</h1>
+      <p class="view-subtitle">Estas questões misturam conhecimentos de todos os módulos, com base em situações reais.</p>
+      <div id="finalBody"></div>
+
+      <div class="quiz-result hidden" id="finalResult">
+        <div class="qr-icon">🏆</div>
+        <h2>Jornada concluída!</h2>
+        <p>Você terminou o guia NavegaSeguro.</p>
+        <p class="qr-score" id="finalScore"></p>
+        <div class="qr-actions">
+          <button class="btn btn-primary" data-goto="summary">Ver meu resultado →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUMMARY / TELA FINAL -->
+  <section id="view-summary" class="view" data-view="summary">
+    <div class="section-inner summary-inner">
+      <div class="summary-badge" aria-hidden="true">🏆</div>
+      <h1>Parabéns!</h1>
+      <p class="view-subtitle">Você concluiu sua jornada de segurança digital.</p>
+
+      <div class="summary-stats">
+        <div class="stat-card"><span class="stat-value" id="statXp">0</span><span class="stat-label">XP total</span></div>
+        <div class="stat-card"><span class="stat-value" id="statModules">0/7</span><span class="stat-label">Módulos concluídos</span></div>
+        <div class="stat-card"><span class="stat-value" id="statQuiz">0/0</span><span class="stat-label">Acertos nos quizzes</span></div>
+        <div class="stat-card"><span class="stat-value" id="statPct">0%</span><span class="stat-label">Aproveitamento</span></div>
+      </div>
+
+      <h2 class="summary-subhead">Agora você sabe como:</h2>
+      <ul class="summary-list">
+        <li>Reconhecer tentativas de phishing</li>
+        <li>Criar senhas mais seguras</li>
+        <li>Identificar riscos em downloads</li>
+        <li>Comprar online com mais cuidado</li>
+        <li>Utilizar redes Wi-Fi públicas com mais atenção</li>
+        <li>Proteger seus dados pessoais</li>
+        <li>Reconhecer situações comuns de golpes</li>
+      </ul>
+
+      <div class="achievements-row" id="achievementsRow"></div>
+
+      <button class="btn btn-primary" data-goto="feedback">Deixar meu feedback →</button>
+    </div>
+  </section>
+
+  <!-- FEEDBACK -->
+  <section id="view-feedback" class="view" data-view="feedback">
+    <div class="section-inner feedback-inner">
+      <h1>Como foi sua experiência?</h1>
+      <p class="view-subtitle">O conteúdo ajudou você a entender melhor como se proteger na internet?</p>
+
+      <div class="star-rating" id="starRating" role="radiogroup" aria-label="Avaliação de 1 a 5 estrelas">
+        <button type="button" class="star" data-value="1" role="radio" aria-checked="false" aria-label="Não ajudou">★</button>
+        <button type="button" class="star" data-value="2" role="radio" aria-checked="false" aria-label="2 estrelas">★</button>
+        <button type="button" class="star" data-value="3" role="radio" aria-checked="false" aria-label="3 estrelas">★</button>
+        <button type="button" class="star" data-value="4" role="radio" aria-checked="false" aria-label="4 estrelas">★</button>
+        <button type="button" class="star" data-value="5" role="radio" aria-checked="false" aria-label="Ajudou muito">★</button>
+      </div>
+      <p class="star-caption" id="starCaption">Toque em uma estrela para avaliar</p>
+
+      <form id="feedbackForm">
+        <label for="feedbackText">Conte-nos o que você achou:</label>
+        <textarea id="feedbackText" name="feedbackText" rows="4" placeholder="Escreva aqui seus comentários, sugestões ou dúvidas..."></textarea>
+        <button type="submit" class="btn btn-primary">Enviar feedback</button>
+      </form>
+
+      <div class="feedback-thanks hidden" id="feedbackThanks">
+        <p>✓ Obrigado! Seu feedback foi enviado.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEU PROGRESSO -->
+  <section id="view-progress" class="view" data-view="progress">
+    <div class="section-inner">
+      <h1>Seu progresso</h1>
+      <div class="progress-overview">
+        <div class="rp-label">
+          <span>Progresso geral</span>
+          <span id="overallPercentLabel">0%</span>
+        </div>
+        <div class="rp-track big"><div class="rp-fill" id="overallPercentFill"></div></div>
+      </div>
+
+      <div class="summary-stats">
+        <div class="stat-card"><span class="stat-value" id="progXp">0</span><span class="stat-label">XP total</span></div>
+        <div class="stat-card"><span class="stat-value" id="progModules">0/7</span><span class="stat-label">Módulos concluídos</span></div>
+      </div>
+
+      <h2 class="summary-subhead">Módulos</h2>
+      <div class="module-grid" id="progressModuleGrid"></div>
+
+      <button class="reset-link" id="resetProgressBtn">Reiniciar meu progresso</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="section-inner footer-inner">
+    <span>NavegaSeguro — Projeto de extensão em Análise e Desenvolvimento de Sistemas.</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
